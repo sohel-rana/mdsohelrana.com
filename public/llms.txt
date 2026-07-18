@@ -1,0 +1,48 @@
+# Md. Sohel Rana
+
+> Founder & CEO of NerdDevs Ltd, and an AI & SaaS Architect / Full-Stack Engineer based in Dhaka, Bangladesh, with 19+ years in software engineering. He leads a 20+ engineer team building AI-driven products, scalable SaaS platforms, and EdTech systems for clients across Asia, Europe, and North America.
+
+Md. Sohel Rana architected Genius AI (100K+ users), a US messaging platform delivering 5M+ texts/month, Biddaan (a multi-vendor EdTech LMS used by 1,000+ educators in Bangladesh), and led engineering for TestReach, the remote-proctored exam platform trusted by ACCA and British Council for high-stakes professional exams.
+
+## Key facts
+
+- Name: Md. Sohel Rana
+- Role: Founder & CEO, NerdDevs Ltd · AI & SaaS Architect · Full-Stack Engineer
+- Location: Dhaka, Bangladesh (UTC+6)
+- Experience: 19+ years in software engineering
+- Company: NerdDevs Ltd (founded 2015), 27+ long-term projects across 6+ countries, 20+ engineers
+- Education: B.Sc. in Computer Science & Engineering, Rajshahi University of Engineering & Technology (RUET), 2003–2007
+- Contact: sohel@nerddevs.com
+- LinkedIn: https://www.linkedin.com/in/mdsohelrana
+- GitHub: https://github.com/sohel-rana
+- Company site: https://nerddevs.com
+
+## Notable projects
+
+- Genius — AI Chat 5.0: GPT-4/5 and Vision-powered AI chat app, 100K+ sign-ups in three weeks, 99.9% uptime.
+- US Messaging Platform: Anonymous-SMS consumer app delivering 5M+ texts/month on queue-driven, auto-scaling AWS infrastructure.
+- Biddaan: Localized multi-vendor EdTech LMS for coaching centers and trainers in Bangladesh, 1,000+ educators onboarded.
+- TestReach: Secure online assessment platform with remote proctoring, trusted by ACCA, British Council and CIPS for millions of high-stakes exams.
+- AI Mate: Consumer AI assistant powered by GPT-5, 100K+ downloads, 4.5★ rating.
+- NerdCRM: A $4/seat CRM for phone-heavy sales teams with auto-linked call recording and cold-email sequencing.
+- DailyHabitz: iOS habit tracker with AI-powered micro-coaching, 5.0★ App Store rating.
+
+## Site pages
+
+- [Homepage](https://mdsohelrana.com/): Full profile, work history, skills, and NerdDevs overview.
+- [Blog](https://mdsohelrana.com/blog): Field notes on AI product development, SaaS architecture, EdTech, cloud infrastructure and engineering leadership.
+
+## Blog posts
+
+- [Why We Rebuilt Our AI Chat Pipeline for Scale](https://mdsohelrana.com/blog/genius-ai-scale-lessons): Lessons from Genius AI's first 100K users and what broke, held, and changed at scale.
+- [The Hidden Complexity of SMS at Scale](https://mdsohelrana.com/blog/sms-at-scale-hidden-complexity): Notes on idempotency, dead-letter handling, and carrier reality from delivering 5M+ texts/month.
+- [From Idea to 1,000 Educators: Building Biddaan](https://mdsohelrana.com/blog/building-biddaan-edtech-bangladesh): What building a localized multi-vendor LMS taught about EdTech in Bangladesh.
+- [TDD Isn't Slower — It's a Different Kind of Fast](https://mdsohelrana.com/blog/tdd-different-kind-of-fast): Why test-driven development still leads after 19+ years and real production incidents.
+- [Choosing Between AWS, Azure, and GCP](https://mdsohelrana.com/blog/choosing-aws-azure-gcp): A founder's practical framework for picking a cloud provider.
+- [2026 Predictions: Where AI Product Development Is Actually Heading](https://mdsohelrana.com/blog/ai-product-development-2026): An honest read on AI product trends from someone shipping AI features in production.
+- [Why Every SaaS Founder Needs to Understand Their Own Database](https://mdsohelrana.com/blog/saas-founders-know-your-database): Why understanding your data model matters for product and pricing decisions.
+- [Remote Proctoring at Scale: Engineering Trust Into High-Stakes Exams](https://mdsohelrana.com/blog/remote-proctoring-engineering-trust): What building trust into remote assessment infrastructure requires, from TestReach.
+- [The Multi-Tenant Trap](https://mdsohelrana.com/blog/multi-tenant-trap): Multi-tenant SaaS architecture decisions that are hard to undo, from Biddaan and NerdCRM.
+- [Hiring Engineers Who Ship](https://mdsohelrana.com/blog/hiring-engineers-who-ship): What leading a 20+ person engineering org predicts about who ships reliably.
+- [Cold Email Still Works — If Your Product Team Builds It Right](https://mdsohelrana.com/blog/cold-email-still-works-nerdcrm): What building cold-email sequencing into NerdCRM taught about outreach that works.
+- [AI Coaching in Consumer Apps](https://mdsohelrana.com/blog/ai-coaching-consumer-retention): What DailyHabitz taught about retention through personalized AI micro-coaching.

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
           <loc>https://mdsohelrana.com/</loc>
+          <lastmod>2026-07-19</lastmod>
           <changefreq>monthly</changefreq>
           <priority>1.0</priority>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog</loc>
+          <lastmod>2026-07-19</lastmod>
           <changefreq>weekly</changefreq>
           <priority>0.8</priority>
     </url>
@@ -15,71 +17,119 @@
           <lastmod>2025-08-14</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/genius-ai-scale-lessons.jpg</image:loc>
+                <image:title>Why We Rebuilt Our AI Chat Pipeline for Scale</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/sms-at-scale-hidden-complexity</loc>
           <lastmod>2025-09-22</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/sms-at-scale-hidden-complexity.jpg</image:loc>
+                <image:title>The Hidden Complexity of SMS at Scale</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/building-biddaan-edtech-bangladesh</loc>
           <lastmod>2025-10-09</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/building-biddaan-edtech-bangladesh.jpg</image:loc>
+                <image:title>From Idea to 1,000 Educators: What Building Biddaan Taught Me About EdTech in Bangladesh</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/tdd-different-kind-of-fast</loc>
           <lastmod>2025-11-18</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/tdd-different-kind-of-fast.jpg</image:loc>
+                <image:title>TDD Isn't Slower — It's a Different Kind of Fast</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/choosing-aws-azure-gcp</loc>
           <lastmod>2025-12-03</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/choosing-aws-azure-gcp.jpg</image:loc>
+                <image:title>Choosing Between AWS, Azure, and GCP: A Founder's Practical Framework</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/ai-product-development-2026</loc>
           <lastmod>2026-01-27</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/ai-product-development-2026.jpg</image:loc>
+                <image:title>2026 Predictions: Where AI Product Development Is Actually Heading</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/saas-founders-know-your-database</loc>
           <lastmod>2026-02-11</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/saas-founders-know-your-database.jpg</image:loc>
+                <image:title>Why Every SaaS Founder Needs to Understand Their Own Database</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/remote-proctoring-engineering-trust</loc>
           <lastmod>2026-03-19</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/remote-proctoring-engineering-trust.jpg</image:loc>
+                <image:title>Remote Proctoring at Scale: Engineering Trust Into High-Stakes Exams</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/multi-tenant-trap</loc>
           <lastmod>2026-04-08</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/multi-tenant-trap.jpg</image:loc>
+                <image:title>The Multi-Tenant Trap: Architecture Decisions That Are Hard to Undo</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/hiring-engineers-who-ship</loc>
           <lastmod>2026-05-25</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/hiring-engineers-who-ship.jpg</image:loc>
+                <image:title>Hiring Engineers Who Ship: What Leading 20+ Engineers Taught Me About Building Teams</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/cold-email-still-works-nerdcrm</loc>
           <lastmod>2026-06-14</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/cold-email-still-works-nerdcrm.jpg</image:loc>
+                <image:title>Cold Email Still Works — If Your Product Team Builds It Right</image:title>
+          </image:image>
     </url>
     <url>
           <loc>https://mdsohelrana.com/blog/ai-coaching-consumer-retention</loc>
           <lastmod>2026-07-06</lastmod>
           <changefreq>yearly</changefreq>
           <priority>0.6</priority>
+          <image:image>
+                <image:loc>https://mdsohelrana.com/blog-covers/ai-coaching-consumer-retention.jpg</image:loc>
+                <image:title>AI Coaching in Consumer Apps: What DailyHabitz Taught Us About Retention</image:title>
+          </image:image>
     </url>
 </urlset>
