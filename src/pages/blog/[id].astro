@@ -64,12 +64,6 @@ const articleLd = {
           ))}
         </div>
 
-        {post.data.image && (
-          <div class="post-cover">
-            <img src={post.data.image} alt={post.data.title} width="1200" height="630" loading="eager" />
-          </div>
-        )}
-
         <div class="prose">
           <Content />
         </div>
@@ -132,20 +126,6 @@ const articleLd = {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 2.5rem;
-  }
-
-  .post-cover {
-    max-width: 780px;
-    margin-bottom: 2.5rem;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--line);
-  }
-
-  .post-cover img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   .prose {

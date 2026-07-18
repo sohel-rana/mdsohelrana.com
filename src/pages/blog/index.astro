@@ -35,11 +35,6 @@ const dateFmt = (d: Date) =>
         <div class="posts">
           {posts.map((post) => (
             <a class="post-card" href={`/blog/${post.id}`} data-reveal>
-              {post.data.image && (
-                <div class="post-thumb">
-                  <img src={post.data.image} alt="" width="1200" height="630" loading="lazy" />
-                </div>
-              )}
               <div class="post-meta">
                 <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
               </div>
@@ -91,18 +86,6 @@ const dateFmt = (d: Date) =>
     border-radius: var(--radius);
     background: linear-gradient(180deg, var(--card), var(--surface));
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    overflow: hidden;
-  }
-
-  .post-thumb {
-    margin: -1.75rem -1.9rem 0.6rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .post-thumb img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   .post-card:hover {
