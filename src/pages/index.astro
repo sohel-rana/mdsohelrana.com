@@ -7,9 +7,25 @@ import Experience from '../components/Experience.astro';
 import Skills from '../components/Skills.astro';
 import Nerddevs from '../components/Nerddevs.astro';
 import Contact from '../components/Contact.astro';
+import { site } from '../data/profile';
+
+const profilePageLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${site.url}/#profilepage`,
+  url: site.url,
+  name: site.title,
+  isPartOf: { '@id': `${site.url}/#website` },
+  about: { '@id': `${site.url}/#person` },
+  mainEntity: { '@id': `${site.url}/#person` },
+};
 ---
 
 <Base>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(profilePageLd)} />
+  </Fragment>
+
   <Nav />
   <main>
     <Hero />
