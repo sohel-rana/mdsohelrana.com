@@ -10,13 +10,47 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
 
 const dateFmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const blogPageDescription =
+  'Notes on AI product development, SaaS architecture, EdTech, and engineering leadership from Md. Sohel Rana, Founder & CEO of NerdDevs.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Blog',
+      '@id': `${site.url}/blog/#blog`,
+      url: `${site.url}/blog`,
+      name: `Blog — ${person.name}`,
+      description: blogPageDescription,
+      inLanguage: 'en',
+      isPartOf: { '@id': `${site.url}/#website` },
+      author: { '@id': `${site.url}/#person` },
+      blogPost: posts.map((post) => ({
+        '@id': `${site.url}/blog/${post.id}/#article`,
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${site.url}/blog/#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/blog` },
+      ],
+    },
+  ],
+};
 ---
 
 <Base
   title={`Blog — ${person.name}`}
-  description="Notes on AI product development, SaaS architecture, EdTech, and engineering leadership from Md. Sohel Rana, Founder & CEO of NerdDevs."
+  description={blogPageDescription}
   ogImage={site.ogImage}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
   <Nav />
   <main>
     <section class="blog-hero">
