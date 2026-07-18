@@ -23,6 +23,8 @@ jobs:
 
       - name: Build with Astro
         uses: withastro/action@v3
+        with:
+          package-manager: npm@latest
         # Defaults: installs deps with npm, runs `astro build`,
         # uploads ./dist as the Pages artifact.
 
