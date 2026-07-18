@@ -9,7 +9,7 @@ export const site = {
   url: 'https://mdsohelrana.com',
   title: 'Md. Sohel Rana — Founder & CEO @ NerdDevs · AI & SaaS Architect',
   description:
-    'Software engineer turned entrepreneur with 17+ years in tech. Founder & CEO of NerdDevs. Architect behind Genius AI (100K+ users), a US messaging platform moving 5M+ texts/month, Biddaan LMS and TestReach — the exam platform trusted by ACCA & British Council.',
+    'Software engineer turned entrepreneur with 19+ years in tech. Founder & CEO of NerdDevs. Architect behind Genius AI (100K+ users), a US messaging platform moving 5M+ texts/month, Biddaan LMS and TestReach — the exam platform trusted by ACCA & British Council.',
   ogImage: '/og.png',
 };
 
@@ -25,7 +25,7 @@ export const person = {
   github: 'https://github.com/sohel-rana',
   cvFile: '/Md-Sohel-Rana-CV.pdf',
   summary:
-    'I’m a software engineer turned entrepreneur with 17+ years in tech. I lead NerdDevs, where a 20+ strong team builds AI-driven products, scalable SaaS and EdTech platforms for clients across Asia, Europe and North America. I don’t just manage projects — I architect them: cloud infrastructure across AWS, Azure and GCP, LLM pipelines, messaging systems handling millions of texts monthly, and assessment platforms trusted by the world’s biggest certification bodies.',
+    'I’m a software engineer turned entrepreneur with 19+ years in tech. I lead NerdDevs, where a 20+ strong team builds AI-driven products, scalable SaaS and EdTech platforms for clients across Asia, Europe and North America. I don’t just manage projects — I architect them: cloud infrastructure across AWS, Azure and GCP, LLM pipelines, messaging systems handling millions of texts monthly, and assessment platforms trusted by the world’s biggest certification bodies.',
   principles: [
     'I don’t just write code — I solve business problems.',
     'TDD and proven design patterns keep products reliable and scalable.',
@@ -34,7 +34,7 @@ export const person = {
 };
 
 export const stats = [
-  { value: '17+', label: 'Years in engineering' },
+  { value: '19+', label: 'Years in engineering' },
   { value: '5M+', label: 'Texts/month · US messaging platform' },
   { value: '100K+', label: 'Users · Genius AI' },
   { value: '20+', label: 'Engineers led at NerdDevs' },
