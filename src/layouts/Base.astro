@@ -123,6 +123,15 @@ const keywords = [
     />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LW23358TZS"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-LW23358TZS');
+</script>
   </head>
   <body>
     <slot />
