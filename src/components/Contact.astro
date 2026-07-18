@@ -1,0 +1,102 @@
+---
+import { person } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<section id="contact">
+  <div class="container contact-inner">
+    <p class="eyebrow">05 — Contact</p>
+    <h2 class="title" data-reveal>
+      Let’s build something <span class="accent">exceptional</span> together.
+    </h2>
+    <p class="lead" data-reveal>
+      Building an AI product, scaling a SaaS, or launching an EdTech platform? I reply within one
+      business day.
+    </p>
+
+    <div class="actions" data-reveal>
+      <a class="btn btn-primary big" href={`mailto:${person.email}`}>{person.email}</a>
+      <a class="btn btn-ghost big" href={person.linkedin} target="_blank" rel="noopener">
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© {year} {person.name}. All rights reserved.</p>
+    <p class="built">
+      Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> · Deployed on
+      GitHub Pages · <a href="https://nerddevs.com" target="_blank" rel="noopener">nerddevs.com</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .contact-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-inner .eyebrow {
+    justify-content: center;
+  }
+
+  .contact-inner .eyebrow::after {
+    display: none;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    max-width: 640px;
+  }
+
+  .accent {
+    color: var(--accent-bright);
+  }
+
+  .lead {
+    margin-top: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+  }
+
+  .actions {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .big {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding: 1.75rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.83rem;
+    color: var(--faint);
+  }
+
+  .footer a {
+    color: var(--muted);
+    transition: color 0.15s ease;
+  }
+
+  .footer a:hover {
+    color: var(--accent-bright);
+  }
+</style>
