@@ -7,8 +7,9 @@ import { projects } from '../data/profile';
     <p class="eyebrow">01 — Featured Work</p>
     <h2 class="section-title">Products used by millions</h2>
     <p class="section-lead">
-      A selection of platforms I’ve architected and shipped — from AI assistants and messaging
-      backends to national-scale assessment systems.
+      Platforms I’ve architected and shipped — client work and NerdDevs’ own products, from AI
+      assistants and messaging backends to assessment systems trusted by global certification
+      bodies. Some clients stay unnamed; that discretion is part of the engagement.
     </p>
 
     <div class="grid">
@@ -16,7 +17,10 @@ import { projects } from '../data/profile';
         <article class={`card ${p.featured ? 'featured' : ''}`} data-reveal>
           <div class="card-top">
             <span class="index">{p.index}</span>
-            <span class="period">{p.period}</span>
+            <span class="top-right">
+              {p.nda && <span class="nda">Client under NDA</span>}
+              <span class="period">{p.period}</span>
+            </span>
           </div>
 
           <h3 class="card-title">
@@ -34,6 +38,12 @@ import { projects } from '../data/profile';
 
           <p class="card-role">{p.role}</p>
           <p class="card-desc">{p.description}</p>
+
+          <ul class="highlights">
+            {p.highlights.map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
 
           <p class="impact">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -100,6 +110,24 @@ import { projects } from '../data/profile';
     color: var(--faint);
   }
 
+  .top-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nda {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    white-space: nowrap;
+  }
+
   .card-title {
     font-size: 1.25rem;
   }
@@ -129,7 +157,31 @@ import { projects } from '../data/profile';
   .card-desc {
     color: var(--muted);
     font-size: 0.93rem;
+  }
+
+  .highlights {
+    list-style: none;
+    margin: 0.1rem 0 0;
+    padding: 0;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .highlights li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--muted);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .highlights li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
   }
 
   .impact {
