@@ -6,27 +6,76 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, ''
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: person.name,
-  url: site.url,
-  email: `mailto:${person.email}`,
-  jobTitle: 'Founder & CEO · AI & SaaS Architect',
-  worksFor: {
-    '@type': 'Organization',
-    name: company.name,
-    url: company.url,
-  },
-  alumniOf: {
-    '@type': 'CollegeOrUniversity',
-    name: education.school,
-  },
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Dhaka',
-    addressCountry: 'BD',
-  },
-  sameAs: [person.linkedin, person.github, company.url],
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${site.url}/#person`,
+      name: person.name,
+      url: site.url,
+      image: `${site.url}/og.png`,
+      email: `mailto:${person.email}`,
+      jobTitle: 'Founder & CEO · AI & SaaS Architect',
+      description: site.description,
+      worksFor: {
+        '@type': 'Organization',
+        name: company.name,
+        url: company.url,
+      },
+      alumniOf: {
+        '@type': 'CollegeOrUniversity',
+        name: education.school,
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Dhaka',
+        addressCountry: 'BD',
+      },
+      knowsAbout: [
+        'AI development',
+        'LLM integration',
+        'SaaS architecture',
+        'EdTech platforms',
+        'Cloud infrastructure (AWS, Azure, GCP)',
+        'Messaging systems',
+        'Node.js',
+        'TypeScript',
+        'MongoDB',
+      ],
+      sameAs: [person.linkedin, person.github, company.url],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site.url}/#website`,
+      url: site.url,
+      name: person.name,
+      description: site.description,
+      publisher: { '@id': `${site.url}/#person` },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${site.url}/#profilepage`,
+      url: site.url,
+      name: site.title,
+      isPartOf: { '@id': `${site.url}/#website` },
+      about: { '@id': `${site.url}/#person` },
+      mainEntity: { '@id': `${site.url}/#person` },
+    },
+  ],
 };
+
+const keywords = [
+  'Md. Sohel Rana',
+  'Sohel Rana NerdDevs',
+  'NerdDevs founder',
+  'AI SaaS architect Bangladesh',
+  'software architect Dhaka',
+  'full-stack engineer Bangladesh',
+  'EdTech LMS architect',
+  'AI product development',
+  'Node.js architect',
+  'startup CTO Bangladesh',
+].join(', ');
 ---
 
 <!doctype html>
@@ -37,6 +86,8 @@ const jsonLd = {
     <title>{site.title}</title>
     <meta name="description" content={site.description} />
     <meta name="author" content={person.name} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <meta name="theme-color" content="#070b14" />
     <meta name="color-scheme" content="dark" />
     <link rel="canonical" href={canonical} />
@@ -51,6 +102,10 @@ const jsonLd = {
     <meta property="og:image" content={new URL(site.ogImage, Astro.site).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${person.name} — ${person.headline}`} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Sohel" />
+    <meta property="profile:last_name" content="Rana" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

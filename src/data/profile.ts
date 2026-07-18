@@ -49,7 +49,8 @@ export type Project = {
   highlights: string[];
   impact: string;
   tags: string[];
-  link?: string;
+  caseStudy?: string;
+  live?: { url: string; label: string };
   nda?: boolean;
   featured?: boolean;
 };
@@ -69,7 +70,8 @@ export const projects: Project[] = [
     ],
     impact: '100K+ users at 99.9% uptime',
     tags: ['OpenAI GPT-4/5', 'Vision API', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
-    link: 'https://nerddevs.com/portfolio/genius-ai',
+    caseStudy: 'https://nerddevs.com/portfolio/genius-ai',
+    live: { url: 'https://apps.apple.com/kz/app/ai-chat-4-0-genius/id1665764663', label: 'App Store' },
     featured: true,
   },
   {
@@ -86,7 +88,7 @@ export const projects: Project[] = [
     ],
     impact: '5M+ texts delivered monthly',
     tags: ['Twilio', 'Bandwidth', 'Node.js', 'Redis queues', 'MongoDB', 'AWS'],
-    link: 'https://nerddevs.com/portfolio/us-messaging-platform',
+    caseStudy: 'https://nerddevs.com/portfolio/us-messaging-platform',
     nda: true,
     featured: true,
   },
@@ -104,7 +106,8 @@ export const projects: Project[] = [
     ],
     impact: '1,000+ educators onboarded',
     tags: ['Multi-tenant SaaS', 'EdTech', 'Assessments', 'Payments'],
-    link: 'https://nerddevs.com/portfolio/biddaan',
+    caseStudy: 'https://nerddevs.com/portfolio/biddaan',
+    live: { url: 'https://biddaan.nerddevs.biz/', label: 'Live demo' },
   },
   {
     index: '04',
@@ -120,7 +123,8 @@ export const projects: Project[] = [
     ],
     impact: 'Millions of exams delivered globally',
     tags: ['High-stakes exams', 'Remote proctoring', 'Scalability'],
-    link: 'https://nerddevs.com/portfolio/testreach',
+    caseStudy: 'https://nerddevs.com/portfolio/testreach',
+    live: { url: 'https://www.testreach.com', label: 'testreach.com' },
   },
   {
     index: '05',
@@ -136,7 +140,7 @@ export const projects: Project[] = [
     ],
     impact: '100K+ downloads · 4.5★ rating',
     tags: ['GPT-5', 'Consumer AI', 'Web + Mobile', 'Subscriptions'],
-    link: 'https://app.aimate.online/',
+    live: { url: 'https://app.aimate.online/', label: 'Try it live' },
   },
   {
     index: '06',
@@ -152,7 +156,8 @@ export const projects: Project[] = [
     ],
     impact: 'First-party SaaS, used daily in production',
     tags: ['Multi-tenant SaaS', 'Call recording', 'Email outreach', 'Paddle'],
-    link: 'https://nerddevs.com/portfolio/nerd-crm',
+    caseStudy: 'https://nerddevs.com/portfolio/nerd-crm',
+    live: { url: 'https://getnerdcrm.com', label: 'getnerdcrm.com' },
   },
   {
     index: '07',
@@ -168,7 +173,8 @@ export const projects: Project[] = [
     ],
     impact: '5.0★ App Store rating',
     tags: ['iOS', 'AI coaching', 'Firebase', 'Gamification'],
-    link: 'https://nerddevs.com/portfolio/dailyhabitz',
+    caseStudy: 'https://nerddevs.com/portfolio/dailyhabitz',
+    live: { url: 'https://apps.apple.com/us/app/dailyhabitz/id6751629717', label: 'App Store' },
   },
   {
     index: '08',

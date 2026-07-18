@@ -24,8 +24,8 @@ import { projects } from '../data/profile';
           </div>
 
           <h3 class="card-title">
-            {p.link ? (
-              <a href={p.link} target="_blank" rel="noopener">
+            {p.caseStudy || p.live ? (
+              <a href={p.caseStudy || p.live?.url} target="_blank" rel="noopener">
                 {p.name}
                 <svg class="ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                   <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -57,6 +57,21 @@ import { projects } from '../data/profile';
               <span class="chip">{t}</span>
             ))}
           </div>
+
+          {(p.live || p.caseStudy) && (
+            <div class="links">
+              {p.live && (
+                <a class="link-btn live" href={p.live.url} target="_blank" rel="noopener">
+                  {p.live.label} ↗
+                </a>
+              )}
+              {p.caseStudy && (
+                <a class="link-btn" href={p.caseStudy} target="_blank" rel="noopener">
+                  Case study →
+                </a>
+              )}
+            </div>
+          )}
         </article>
       ))}
     </div>
@@ -202,6 +217,40 @@ import { projects } from '../data/profile';
     flex-wrap: wrap;
     gap: 0.45rem;
     margin-top: 0.35rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+  }
+
+  .link-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.42rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .link-btn:hover {
+    color: var(--accent-bright);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .link-btn.live {
+    color: var(--accent-bright);
+    border-color: rgba(249, 115, 22, 0.45);
+  }
+
+  .link-btn.live:hover {
+    background: var(--accent-soft);
   }
 
   @media (max-width: 980px) {
