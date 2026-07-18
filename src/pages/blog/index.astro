@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Contact from '../../components/Contact.astro';
+import { getCollection } from 'astro:content';
+import { site, person } from '../../data/profile';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const dateFmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base
+  title={`Blog — ${person.name}`}
+  description="Notes on AI product development, SaaS architecture, EdTech, and engineering leadership from Md. Sohel Rana, Founder & CEO of NerdDevs."
+  ogImage={site.ogImage}
+>
+  <Nav />
+  <main>
+    <section class="blog-hero">
+      <div class="container">
+        <p class="eyebrow">Writing</p>
+        <h1 class="section-title">Notes from building AI products and running an engineering team</h1>
+        <p class="section-lead">
+          Field notes on AI product development, SaaS architecture, EdTech, cloud infrastructure and
+          engineering leadership — drawn from what we actually ship at NerdDevs, not theory.
+        </p>
+      </div>
+    </section>
+
+    <section class="blog-list">
+      <div class="container">
+        <div class="posts">
+          {posts.map((post) => (
+            <a class="post-card" href={`/blog/${post.id}`} data-reveal>
+              <div class="post-meta">
+                <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
+              </div>
+              <h2 class="post-title">{post.data.title}</h2>
+              <p class="post-desc">{post.data.description}</p>
+              <div class="post-tags">
+                {post.data.tags.map((t) => (
+                  <span class="chip">{t}</span>
+                ))}
+              </div>
+              <span class="read-more">
+                Read post
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Base>
+
+<style>
+  .blog-hero {
+    padding: 160px 0 40px;
+  }
+
+  .blog-list {
+    padding-top: 0;
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 760px;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.75rem 1.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--card), var(--surface));
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(249, 115, 22, 0.45);
+    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  .post-meta time {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+  }
+
+  .post-title {
+    font-size: 1.35rem;
+  }
+
+  .post-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.15rem;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-bright);
+  }
+
+  .read-more svg {
+    opacity: 0.7;
+  }
+</style>
