@@ -2,6 +2,20 @@
 import '../styles/global.css';
 import { site, person, education, company } from '../data/profile';
 
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  ogImage = site.ogImage,
+  ogType = 'website',
+} = Astro.props;
+
 const canonical = new URL(Astro.url.pathname, Astro.site).href.replace(/\/$/, '') || site.url;
 
 const jsonLd = {
@@ -12,7 +26,7 @@ const jsonLd = {
       '@id': `${site.url}/#person`,
       name: person.name,
       url: site.url,
-      image: `${site.url}/og.png`,
+      image: `${site.url}/sohel-rana.jpg`,
       email: `mailto:${person.email}`,
       jobTitle: 'Founder & CEO · AI & SaaS Architect',
       description: site.description,
@@ -83,8 +97,8 @@ const keywords = [
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>{site.title}</title>
-    <meta name="description" content={site.description} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="author" content={person.name} />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -94,12 +108,12 @@ const keywords = [
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={person.name} />
-    <meta property="og:title" content={site.title} />
-    <meta property="og:description" content={site.description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(site.ogImage, Astro.site).href} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={`${person.name} — ${person.headline}`} />
@@ -109,9 +123,9 @@ const keywords = [
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={site.title} />
-    <meta name="twitter:description" content={site.description} />
-    <meta name="twitter:image" content={new URL(site.ogImage, Astro.site).href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).href} />
 <meta name="google-site-verification" content="HFiu7VewcBk8FVAS3fZyS9RYgF5Jax03c5LR1LEXUaQ" />
 
     <!-- Fonts -->
@@ -132,6 +146,8 @@ const keywords = [
   gtag('js', new Date());
   gtag('config', 'G-LW23358TZS');
 </script>
+
+    <slot name="head" />
   </head>
   <body>
     <slot />
