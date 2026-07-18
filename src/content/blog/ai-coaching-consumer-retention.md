@@ -3,6 +3,7 @@ title: "AI Coaching in Consumer Apps: What DailyHabitz Taught Us About Retention
 description: "Habit trackers lose most users in week two. Here's how personalized AI micro-coaching changed DailyHabitz's retention curve, and what actually made the difference."
 pubDate: 2026-07-06
 tags: ["AI", "Consumer Apps", "Retention", "Case Study"]
+image: "/blog-covers/ai-coaching-consumer-retention.jpg"
 ---
 
 Habit-tracking apps have a well-known problem: near-universal week-one enthusiasm, and a brutal week-two drop-off once the novelty fades and life gets in the way. When we built DailyHabitz, we didn't set out to build "another habit tracker with AI bolted on." We set out to specifically attack that week-two cliff, and the AI coaching layer is what actually moved it.

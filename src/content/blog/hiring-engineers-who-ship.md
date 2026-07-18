@@ -3,6 +3,7 @@ title: "Hiring Engineers Who Ship: What Leading 20+ Engineers Taught Me About Bu
 description: "Technical skill is table stakes. Here's what actually predicts whether an engineer will ship reliably on a growing team, after 19+ years in the industry and leading a 20+ person engineering org."
 pubDate: 2026-05-25
 tags: ["Leadership", "Hiring", "Engineering Culture"]
+image: "/blog-covers/hiring-engineers-who-ship.jpg"
 ---
 
 Leading a 20+ member engineering team at NerdDevs across AI-powered SaaS, EdTech platforms, and enterprise applications has changed what I screen for in an interview far more than any algorithm question ever did. Technical skill gets someone past the first filter. It rarely predicts who actually ships reliably once they're on the team.

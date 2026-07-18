@@ -3,6 +3,7 @@ title: "Why Every SaaS Founder Needs to Understand Their Own Database"
 description: "You don't need to write every query yourself, but if you can't explain your own data model, you can't make good product or pricing decisions. Here's why."
 pubDate: 2026-02-11
 tags: ["SaaS", "Databases", "Founder Lessons"]
+image: "/blog-covers/saas-founders-know-your-database.jpg"
 ---
 
 I've sat in enough product and pricing meetings with non-technical founders to notice a pattern: the decisions that go sideways almost always trace back to someone not understanding how their own data is actually shaped. You don't need to write the queries yourself. You do need to understand what your database is telling you, and what it isn't.

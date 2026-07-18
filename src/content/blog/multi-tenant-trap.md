@@ -3,6 +3,7 @@ title: "The Multi-Tenant Trap: Architecture Decisions That Are Hard to Undo"
 description: "Multi-tenant SaaS architecture decisions made in week one can outlive every other technical choice in the product. Notes from building Biddaan and NerdCRM on what's actually hard to undo."
 pubDate: 2026-04-08
 tags: ["SaaS", "Architecture", "Multi-tenancy"]
+image: "/blog-covers/multi-tenant-trap.jpg"
 ---
 
 Most architecture decisions are reversible with enough engineering time. Multi-tenancy is the exception that should scare you a little more than it usually does. Get the isolation model wrong early, and by the time it matters — real customer data, real scale — undoing it isn't a refactor, it's closer to a migration with legal implications.

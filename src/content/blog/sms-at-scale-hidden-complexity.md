@@ -3,6 +3,7 @@ title: "The Hidden Complexity of SMS at Scale: Building a Messaging Platform Tha
 description: "Delivering 5M+ texts a month taught me that SMS looks simple until you're the one guaranteeing it arrives. Notes on idempotency, dead-letter handling, and carrier reality."
 pubDate: 2025-09-22
 tags: ["System Design", "Messaging", "AWS", "Reliability"]
+image: "/blog-covers/sms-at-scale-hidden-complexity.jpg"
 ---
 
 Text messaging feels like a solved problem — you call an API, a message appears on someone's phone. Then you build a product where deliverability *is* the product, moving 5M+ texts a month, and you discover that "solved" was doing a lot of quiet work you never had to think about before.

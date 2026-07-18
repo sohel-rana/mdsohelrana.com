@@ -3,6 +3,7 @@ title: "Cold Email Still Works — If Your Product Team Builds It Right"
 description: "We built cold-email sequencing and reply detection directly into NerdCRM because our own sales team needed it. Here's what that dogfooding taught us about outreach that actually works."
 pubDate: 2026-06-14
 tags: ["SaaS", "Sales", "Product", "NerdCRM"]
+image: "/blog-covers/cold-email-still-works-nerdcrm.jpg"
 ---
 
 Cold email has a bad reputation, mostly because most of it is bad. When we built cold-email sequencing into NerdCRM, we weren't building a feature for a market we'd researched from the outside — we were building the exact tool our own NerdDevs sales team needed, and dogfooding it daily forced us to be honest about what actually works.

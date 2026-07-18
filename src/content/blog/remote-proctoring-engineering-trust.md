@@ -3,6 +3,7 @@ title: "Remote Proctoring at Scale: Engineering Trust Into High-Stakes Exams"
 description: "TestReach delivers millions of high-stakes professional exams for bodies like ACCA and British Council. Here's what building trust into remote assessment infrastructure actually requires."
 pubDate: 2026-03-19
 tags: ["System Design", "EdTech", "Assessments", "Case Study"]
+image: "/blog-covers/remote-proctoring-engineering-trust.jpg"
 ---
 
 Most software has to work. High-stakes assessment software has to be *trusted* — by exam candidates whose careers depend on the result, and by certification bodies whose credibility depends on the process being defensible. Architecting TestReach's core systems taught me that trust, in this context, is an engineering property, not a marketing claim.

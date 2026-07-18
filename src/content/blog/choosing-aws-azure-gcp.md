@@ -3,6 +3,7 @@ title: "Choosing Between AWS, Azure, and GCP: A Founder's Practical Framework"
 description: "After architecting production systems on all three major clouds, here's the framework I actually use to decide — not the marketing comparison, the operational one."
 pubDate: 2025-12-03
 tags: ["Cloud", "AWS", "Azure", "GCP", "Architecture"]
+image: "/blog-covers/choosing-aws-azure-gcp.jpg"
 ---
 
 I get asked this question by founders more than almost anything else: "Which cloud should we build on?" The honest answer is that the feature comparison matrices rarely matter as much as three things nobody puts in a slide deck: where your compliance requirements point you, where your team's existing muscle memory is, and where your actual workload shape fits best.

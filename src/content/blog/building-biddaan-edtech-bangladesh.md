@@ -3,6 +3,7 @@ title: "From Idea to 1,000 Educators: What Building Biddaan Taught Me About EdTe
 description: "Biddaan is our localized multi-vendor LMS for coaching centers and trainers in Bangladesh. Here's what onboarding 1,000+ educators actually taught us about the market."
 pubDate: 2025-10-09
 tags: ["EdTech", "SaaS", "Bangladesh", "Product"]
+image: "/blog-covers/building-biddaan-edtech-bangladesh.jpg"
 ---
 
 Biddaan started from a simple observation: coaching centers and independent trainers across Bangladesh were running their entire business — live classes, course sales, exams, payments — across five disconnected tools, or worse, out of a notebook and a WhatsApp group. The opportunity wasn't "build an LMS." Global LMS platforms already exist. The opportunity was building one for how educators here actually operate.

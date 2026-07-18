@@ -3,6 +3,7 @@ title: "TDD Isn't Slower — It's a Different Kind of Fast"
 description: "Test-driven development gets dismissed as a tax on shipping speed. After 19+ years and a fair number of production incidents, here's why I still lead with it."
 pubDate: 2025-11-18
 tags: ["Engineering Culture", "TDD", "Leadership"]
+image: "/blog-covers/tdd-different-kind-of-fast.jpg"
 ---
 
 Every few months someone on a new team asks why we still write tests first when "we could just ship faster without them." It's a fair question from anyone who's only felt the upfront cost of TDD and not the downstream cost of skipping it. So here's my honest answer, not the textbook one.

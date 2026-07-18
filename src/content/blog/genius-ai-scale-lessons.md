@@ -3,6 +3,7 @@ title: "Why We Rebuilt Our AI Chat Pipeline for Scale: Lessons from Genius AI's 
 description: "What broke, what held, and what we'd do differently after Genius AI went from zero to 100K sign-ups in three weeks without falling over."
 pubDate: 2025-08-14
 tags: ["AI", "System Design", "Node.js", "Case Study"]
+image: "/blog-covers/genius-ai-scale-lessons.jpg"
 ---
 
 When we shipped Genius — our GPT-4/5 and Vision-powered AI chat app — we sized the backend for steady growth. We got a hockey stick instead: 100K+ sign-ups in the first three weeks. No outage, no degraded service, but it was closer than I'd like to admit, and it taught me more about production AI infrastructure than the two years before it.
