@@ -22,6 +22,13 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'Organization',
+      '@id': `${company.url}/#organization`,
+      name: company.name,
+      url: company.url,
+      description: company.tagline,
+    },
+    {
       '@type': 'Person',
       '@id': `${site.url}/#person`,
       name: person.name,
@@ -30,11 +37,7 @@ const jsonLd = {
       email: `mailto:${person.email}`,
       jobTitle: 'Founder & CEO · AI & SaaS Architect',
       description: site.description,
-      worksFor: {
-        '@type': 'Organization',
-        name: company.name,
-        url: company.url,
-      },
+      worksFor: { '@id': `${company.url}/#organization` },
       alumniOf: {
         '@type': 'CollegeOrUniversity',
         name: education.school,
@@ -65,15 +68,6 @@ const jsonLd = {
       description: site.description,
       publisher: { '@id': `${site.url}/#person` },
       inLanguage: 'en',
-    },
-    {
-      '@type': 'ProfilePage',
-      '@id': `${site.url}/#profilepage`,
-      url: site.url,
-      name: site.title,
-      isPartOf: { '@id': `${site.url}/#website` },
-      about: { '@id': `${site.url}/#person` },
-      mainEntity: { '@id': `${site.url}/#person` },
     },
   ],
 };
