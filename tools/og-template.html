@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@600&family=Manrope:wght@500;600;700&display=swap" />
+<style>
+  :root {
+    --bg: oklch(0.192 0.006 62);
+    --surface: oklch(0.232 0.007 62);
+    --ink: oklch(0.925 0.006 85);
+    --muted: oklch(0.66 0.008 78);
+    --faint: oklch(0.6 0.008 72);
+    --accent: oklch(0.79 0.09 82);
+    --line: oklch(0.32 0.006 68);
+  }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  .card {
+    width: 1200px; height: 630px;
+    background:
+      radial-gradient(1100px 500px at 88% 8%, oklch(0.26 0.03 78 / 0.5), transparent 60%),
+      var(--bg);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
+  }
+  /* faint grid, warm */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(oklch(0.32 0.006 68 / 0.25) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.32 0.006 68 / 0.25) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(120deg, transparent 30%, black 100%);
+  }
+  .inner { position: relative; padding: 96px 84px; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+  .bar { position: absolute; left: 84px; top: 205px; width: 6px; height: 220px; background: var(--accent); }
+  .name {
+    font-family: 'Bodoni Moda', serif; font-weight: 600;
+    font-size: 104px; line-height: 0.98; letter-spacing: -0.01em;
+    color: var(--ink); margin-left: 40px;
+  }
+  .role {
+    margin-left: 40px; margin-top: 34px;
+    font-size: 34px; font-weight: 600; color: var(--accent); letter-spacing: 0.01em;
+  }
+  .meta {
+    margin-left: 40px; margin-top: 16px;
+    font-size: 27px; font-weight: 500; color: var(--muted); letter-spacing: 0.01em;
+  }
+  .url {
+    position: absolute; left: 124px; bottom: 68px;
+    font-size: 24px; color: var(--faint); letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="grid"></div>
+    <div class="bar"></div>
+    <div class="inner">
+      <div class="name">Md. Sohel Rana</div>
+      <div class="role">Founder &amp; CEO @ NerdDevs</div>
+      <div class="meta">AI &amp; SaaS Architect &nbsp;·&nbsp; Full-Stack Engineer &nbsp;·&nbsp; 19+ years</div>
+    </div>
+    <div class="url">mdsohelrana.com</div>
+  </div>
+</body>
+</html>
