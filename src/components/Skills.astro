@@ -9,8 +9,8 @@ import { person, skills } from '../data/profile';
       <span class="rule"></span>
       <span class="label">Skills</span>
     </div>
-    <h2>The stack I build with</h2>
-    <p class="lead">
+    <h2 class="sec-title">The stack I build with</h2>
+    <p class="lead sec-lead">
       Technologies matched to the problem — never the other way around.
     </p>
 
@@ -36,8 +36,11 @@ import { person, skills } from '../data/profile';
 </section>
 
 <style>
+  section {
+    padding: 120px 0;
+  }
+
   .lead {
-    color: var(--muted);
     max-width: 560px;
   }
 

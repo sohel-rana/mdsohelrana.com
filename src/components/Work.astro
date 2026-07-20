@@ -13,8 +13,8 @@ const more = projects.filter((p) => !p.featured);
       <span class="label">Featured Work</span>
     </div>
 
-    <h2>Products used by millions</h2>
-    <p class="lead">
+    <h2 class="sec-title">Products used by millions</h2>
+    <p class="lead sec-lead">
       Platforms I’ve architected and shipped — client work and NerdDevs’ own products, from AI
       assistants and messaging backends to assessment systems trusted by global certification
       bodies. Some clients stay unnamed; that discretion is part of the engagement.
@@ -72,16 +72,8 @@ const more = projects.filter((p) => !p.featured);
     padding: 120px 0;
   }
 
-  h2 {
-    margin-top: 22px;
-    font-size: clamp(34px, 5.5vw, 58px);
-    line-height: 1.04;
-  }
-
   .lead {
-    margin-top: 22px;
     max-width: 640px;
-    color: var(--muted);
   }
 
   .cards {
@@ -97,7 +89,7 @@ const more = projects.filter((p) => !p.featured);
     padding: 36px 34px;
     display: flex;
     flex-direction: column;
-    transition: background 0.18s ease;
+    transition: background var(--t);
   }
 
   .card:hover {
@@ -167,6 +159,10 @@ const more = projects.filter((p) => !p.featured);
     font-size: 12.5px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  .links a {
+    transition: color var(--t);
   }
 
   .links a:hover {

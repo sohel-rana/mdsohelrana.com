@@ -10,7 +10,7 @@ import { experience, education } from '../data/profile';
       <span class="label">Experience</span>
     </div>
 
-    <h2>19+ years — from national systems to AI products</h2>
+    <h2 class="sec-title">19+ years — from national systems to AI products</h2>
 
     <div class="rows">
       {experience.map((job) => (
@@ -20,7 +20,7 @@ import { experience, education } from '../data/profile';
             <p class="place">{job.location}</p>
           </div>
           <div>
-            <h4>{job.role}</h4>
+            <h3>{job.role}</h3>
             <p class="org">{job.company}</p>
             <p class="note">{job.points.join(' ')}</p>
           </div>
@@ -32,7 +32,7 @@ import { experience, education } from '../data/profile';
           <p class="period">{education.period}</p>
         </div>
         <div>
-          <h4>{education.degree}</h4>
+          <h3>{education.degree}</h3>
           <p class="org">{education.school}</p>
         </div>
       </div>
@@ -46,10 +46,7 @@ import { experience, education } from '../data/profile';
   }
 
   h2 {
-    margin-top: 22px;
     max-width: 840px;
-    font-size: clamp(34px, 5.5vw, 58px);
-    line-height: 1.04;
   }
 
   .rows {
@@ -78,7 +75,7 @@ import { experience, education } from '../data/profile';
     margin-top: 6px;
   }
 
-  .row h4 {
+  .row h3 {
     font-size: 26px;
     line-height: 1.15;
   }
