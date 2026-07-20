@@ -46,7 +46,6 @@ export type Project = {
   role: string;
   period: string;
   description: string;
-  highlights: string[];
   impact: string;
   tags: string[];
   caseStudy?: string;
@@ -62,12 +61,7 @@ export const projects: Project[] = [
     role: 'Architect · AI pipeline design',
     period: '2023 — present',
     description:
-      'AI chat companion with GPT-4/5 and Vision-powered image analysis. I designed the architecture and AI pipeline end to end — a high-throughput Node.js backend built to survive viral growth.',
-    highlights: [
-      '100K+ sign-ups in the first three weeks — no service degradation',
-      '99.9% uptime across thousands of concurrent AI conversations',
-      'Cost-efficient OpenAI usage through caching and resource optimization (MongoDB, Redis, AWS auto-scaling)',
-    ],
+      'An AI chat companion with GPT-4/5 and Vision-powered image analysis. I designed the architecture and AI pipeline end to end — a high-throughput Node.js backend built to survive viral growth.',
     impact: '100K+ users at 99.9% uptime',
     tags: ['OpenAI GPT-4/5', 'Vision API', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
     caseStudy: 'https://nerddevs.com/portfolio/genius-ai',
@@ -80,12 +74,7 @@ export const projects: Project[] = [
     role: 'System design · Messaging architecture',
     period: '2021 — present',
     description:
-      'An anonymous-SMS consumer app: a second phone number that lives in an app, for texting and calling without handing out your real one. I own the system design behind it — a queue-driven pipeline where deliverability IS the product.',
-    highlights: [
-      '5M+ texts delivered monthly on load-balanced, auto-scaling AWS infrastructure',
-      'Idempotent retries and dead-letter handling — transient carrier failures never silently drop a text',
-      'Abuse controls and number-reputation hygiene keep carrier compliance and unit economics predictable',
-    ],
+      'A second phone number that lives in an app — text and call without handing out your real one. I own the queue-driven system design where deliverability is the product.',
     impact: '5M+ texts delivered monthly',
     tags: ['Twilio', 'Bandwidth', 'Node.js', 'Redis queues', 'MongoDB', 'AWS'],
     caseStudy: 'https://nerddevs.com/portfolio/us-messaging-platform',
@@ -98,16 +87,12 @@ export const projects: Project[] = [
     role: 'Co-founder · Architect',
     period: '2025 — present',
     description:
-      'Bangladesh’s localized multi-vendor LMS: educators run their entire teaching business — live classes, courses, exams and payments — from one platform.',
-    highlights: [
-      '1,000+ educators digitizing their business on a multi-tenant architecture',
-      'Exam engine with question banks, audio questions, negative marking and analytics',
-      'Offline enrollment and institute management built for local market realities',
-    ],
+      'Bangladesh’s localized multi-vendor LMS. Educators run their whole teaching business — live classes, courses, exams and payments — from one platform.',
     impact: '1,000+ educators onboarded',
     tags: ['Multi-tenant SaaS', 'EdTech', 'Assessments', 'Payments'],
     caseStudy: 'https://nerddevs.com/portfolio/biddaan',
     live: { url: 'https://biddaan.nerddevs.biz/', label: 'Live demo' },
+    featured: true,
   },
   {
     index: '04',
@@ -115,29 +100,20 @@ export const projects: Project[] = [
     role: 'Software Architect & Team Lead',
     period: '2014 — 2020',
     description:
-      'Secure online assessment SaaS with remote proctoring — the platform behind high-stakes professional exams worldwide. I architected the core systems and led the engineering team.',
-    highlights: [
-      'Trusted by ACCA, British Council and CIPS — millions of exams delivered',
-      'Load-balanced architecture engineered for exam-day traffic spikes and uptime reliability',
-      'APIs and third-party integrations for global certification workflows',
-    ],
+      'Secure online assessment with remote proctoring — the platform behind high-stakes professional exams worldwide. I architected the core systems and led the engineering team.',
     impact: 'Millions of exams delivered globally',
     tags: ['High-stakes exams', 'Remote proctoring', 'Scalability'],
     caseStudy: 'https://nerddevs.com/portfolio/testreach',
     live: { url: 'https://www.testreach.com', label: 'testreach.com' },
+    featured: true,
   },
   {
     index: '05',
     name: 'AI Mate',
-    role: 'Architecture · NerdDevs product',
+    role: 'Consumer AI assistant · GPT-5',
     period: '2023 — present',
     description:
       'Consumer AI assistant powered by GPT-5 — human-like chat, content generation and productivity tools across web and mobile.',
-    highlights: [
-      '100K+ downloads with a 4.5★ store rating',
-      'Live on the App Store, Play Store and web (app.aimate.online)',
-      'Built and operated end to end as a NerdDevs first-party product',
-    ],
     impact: '100K+ downloads · 4.5★ rating',
     tags: ['GPT-5', 'Consumer AI', 'Web + Mobile', 'Subscriptions'],
     live: { url: 'https://app.aimate.online/', label: 'Try it live' },
@@ -145,15 +121,10 @@ export const projects: Project[] = [
   {
     index: '06',
     name: 'NerdCRM',
-    role: 'Product architect · NerdDevs SaaS',
+    role: '$4/seat CRM for sales teams',
     period: '2024 — present',
     description:
       'A fast, focused $4/seat CRM for phone-heavy sales teams — every recorded call auto-attaches to the matching deal and contact by phone-number match.',
-    highlights: [
-      'Auto-linked call recording with encrypted storage in private AWS S3, org-scoped data isolation',
-      'Cold-email sequences with reply detection and a unified inbox threading responses to the right deal',
-      'Dogfooded daily by NerdDevs’ own sales team — built by operators, not just builders',
-    ],
     impact: 'First-party SaaS, used daily in production',
     tags: ['Multi-tenant SaaS', 'Call recording', 'Email outreach', 'Paddle'],
     caseStudy: 'https://nerddevs.com/portfolio/nerd-crm',
@@ -162,15 +133,10 @@ export const projects: Project[] = [
   {
     index: '07',
     name: 'DailyHabitz',
-    role: 'Architecture · NerdDevs product',
+    role: 'iOS habit tracker · AI coaching',
     period: '2025 — present',
     description:
       'iOS habit tracker that solves the week-two drop-off: AI-powered micro-coaching, streak analytics, smart reminders and friend-led accountability challenges.',
-    highlights: [
-      '5.0★ rated on the App Store as a NerdDevs first-party product',
-      'AI coaching tips personalized to each user’s progress',
-      'Offline-first with Firebase-backed cloud sync across devices',
-    ],
     impact: '5.0★ App Store rating',
     tags: ['iOS', 'AI coaching', 'Firebase', 'Gamification'],
     caseStudy: 'https://nerddevs.com/portfolio/dailyhabitz',
@@ -179,15 +145,10 @@ export const projects: Project[] = [
   {
     index: '08',
     name: 'Medical Imaging AI Platform',
-    role: 'Lead & Cloud Architect',
+    role: 'Lead & Cloud Architect · Azure',
     period: '2022',
     description:
       'HealthTech platform bringing AI-enhanced diagnostics to medical imaging. I led the cloud architecture: an Azure pipeline processing DICOM/MRI data under strict healthcare-grade security.',
-    highlights: [
-      'DICOM/MRI processing pipeline on Azure with private endpoints — no public data paths',
-      'Infrastructure as code with Bicep; Redis-backed processing workflows',
-      'Security-first design for sensitive patient imaging data',
-    ],
     impact: 'AI-enhanced diagnostics in production',
     tags: ['Azure', 'Healthcare AI', 'DICOM/MRI', 'Bicep IaC', 'Redis'],
     nda: true,
