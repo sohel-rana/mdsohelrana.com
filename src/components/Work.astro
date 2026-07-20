@@ -59,7 +59,7 @@ const more = projects.filter((p) => !p.featured);
         <div class="more-row" data-reveal>
           <span class="more-name">{p.name}</span>
           <span class="more-role">{p.role}</span>
-          <span class="more-period">{p.period}</span>
+          <span class="more-period">{p.period}{p.nda ? ' · NDA' : ''}</span>
           <span class="more-metric">{p.impact}</span>
         </div>
       ))}
@@ -154,6 +154,12 @@ const more = projects.filter((p) => !p.featured);
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 20px;
+  }
+  /* Design sizes the featured-card tech tags at 11.5px with slight tracking,
+     one notch smaller than the shared 12.5px .chip used in Skills. */
+  .tags .chip {
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
   }
 
   .links {

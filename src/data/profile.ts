@@ -38,9 +38,9 @@ export const person = {
 
 export const stats = [
   { value: '19+', label: 'Years in engineering' },
-  { value: '5M+', label: 'Texts/month · US messaging platform' },
-  { value: '100K+', label: 'Users · Genius AI' },
-  { value: '20+', label: 'Engineers led at NerdDevs' },
+  { value: '5M+', label: 'Texts / month shipped' },
+  { value: '100K+', label: 'Users on Genius AI' },
+  { value: '20+', label: 'Engineers led' },
 ];
 
 export type Project = {
@@ -61,11 +61,11 @@ export const projects: Project[] = [
   {
     index: '01',
     name: 'Genius — AI Chat 5.0',
-    role: 'Architect · AI pipeline design',
+    role: 'Architect · AI pipeline',
     period: '2023 — present',
     description:
       'An AI chat companion with GPT-4/5 and Vision-powered image analysis. I designed the architecture and AI pipeline end to end — a high-throughput Node.js backend built to survive viral growth.',
-    impact: '100K+ users at 99.9% uptime',
+    impact: '100K+ users · 99.9% uptime',
     tags: ['OpenAI GPT-4/5', 'Vision API', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
     caseStudy: 'https://nerddevs.com/portfolio/genius-ai',
     live: { url: 'https://apps.apple.com/kz/app/ai-chat-4-0-genius/id1665764663', label: 'App Store' },
@@ -74,11 +74,11 @@ export const projects: Project[] = [
   {
     index: '02',
     name: 'US Messaging Platform',
-    role: 'System design · Messaging architecture',
+    role: 'System & messaging design',
     period: '2021 — present',
     description:
       'A second phone number that lives in an app — text and call without handing out your real one. I own the queue-driven system design where deliverability is the product.',
-    impact: '5M+ texts delivered monthly',
+    impact: '5M+ texts delivered / month',
     tags: ['Twilio', 'Bandwidth', 'Node.js', 'Redis queues', 'MongoDB', 'AWS'],
     caseStudy: 'https://nerddevs.com/portfolio/us-messaging-platform',
     nda: true,
@@ -100,11 +100,11 @@ export const projects: Project[] = [
   {
     index: '04',
     name: 'TestReach',
-    role: 'Software Architect & Team Lead',
+    role: 'Software Architect & Lead',
     period: '2014 — 2020',
     description:
       'Secure online assessment with remote proctoring — the platform behind high-stakes professional exams worldwide. I architected the core systems and led the engineering team.',
-    impact: 'Millions of exams delivered globally',
+    impact: 'Millions of exams, globally',
     tags: ['High-stakes exams', 'Remote proctoring', 'Scalability'],
     caseStudy: 'https://nerddevs.com/portfolio/testreach',
     live: { url: 'https://www.testreach.com', label: 'testreach.com' },
@@ -117,7 +117,7 @@ export const projects: Project[] = [
     period: '2023 — present',
     description:
       'Consumer AI assistant powered by GPT-5 — human-like chat, content generation and productivity tools across web and mobile.',
-    impact: '100K+ downloads · 4.5★ rating',
+    impact: '100K+ downloads · 4.5★',
     tags: ['GPT-5', 'Consumer AI', 'Web + Mobile', 'Subscriptions'],
     live: { url: 'https://app.aimate.online/', label: 'Try it live' },
   },
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     period: '2024 — present',
     description:
       'A fast, focused $4/seat CRM for phone-heavy sales teams — every recorded call auto-attaches to the matching deal and contact by phone-number match.',
-    impact: 'First-party SaaS, used daily in production',
+    impact: 'Used daily in production',
     tags: ['Multi-tenant SaaS', 'Call recording', 'Email outreach', 'Paddle'],
     caseStudy: 'https://nerddevs.com/portfolio/nerd-crm',
     live: { url: 'https://getnerdcrm.com', label: 'getnerdcrm.com' },
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     period: '2022',
     description:
       'HealthTech platform bringing AI-enhanced diagnostics to medical imaging. I led the cloud architecture: an Azure pipeline processing DICOM/MRI data under strict healthcare-grade security.',
-    impact: 'AI-enhanced diagnostics in production',
+    impact: 'In-production diagnostics',
     tags: ['Azure', 'Healthcare AI', 'DICOM/MRI', 'Bicep IaC', 'Redis'],
     nda: true,
   },
