@@ -14,8 +14,12 @@
 - **Border radius is `0`** everywhere except `.chip`, which is `2px`.
 - **No monospace font.** `--font-mono` is deleted. Code blocks use the system
   stack `ui-monospace, SFMono-Regular, Menlo, monospace` declared locally.
-- **Fluid type.** Every font-size above 20px uses `clamp()`. No per-breakpoint
-  `font-size` overrides.
+- **Fluid type for display sizes.** Every font-size **above 30px** uses
+  `clamp()` — hero, section headings, contact headline, card titles, stat
+  figures. Secondary type in the 21–30px band (wordmark, card index, row names,
+  group names, `h4`, `prose h3`, blockquote) stays at the fixed size the tasks
+  specify; the design file holds these fixed too and they need no scaling.
+  No per-breakpoint `font-size` overrides either way.
 - **`profile.ts` stays the single source of truth.** No content hardcoded into
   component markup.
 - **Preserve `[data-reveal]`.** Keep the CSS rule and its
