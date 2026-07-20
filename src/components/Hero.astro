@@ -145,4 +145,12 @@ import { person, stats } from '../data/profile';
       max-height: 420px;
     }
   }
+
+  /* Below 640px the global `section` rule supplies 64px of block padding.
+     Drop the hero's own top padding so the two don't stack into ~120px. */
+  @media (max-width: 640px) {
+    .hero {
+      padding-top: 0;
+    }
+  }
 </style>
