@@ -1,11 +1,19 @@
 ---
 import { person } from '../data/profile';
+
+// The roman numeral marks position in the homepage's I–V section sequence.
+// On the blog pages that sequence is meaningless, so `numeral` is only passed
+// (as "V") from the homepage; elsewhere the marker renders without a numeral.
+interface Props {
+  numeral?: string;
+}
+const { numeral } = Astro.props;
 ---
 
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="num">V</span>
+      {numeral && <span class="num">{numeral}</span>}
       <span class="rule"></span>
       <span class="label">Contact</span>
     </div>
