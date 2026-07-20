@@ -1,5 +1,5 @@
 ---
-import { skills } from '../data/profile';
+import { person, skills } from '../data/profile';
 ---
 
 <section id="skills">
@@ -13,6 +13,12 @@ import { skills } from '../data/profile';
     <p class="lead">
       Technologies matched to the problem — never the other way around.
     </p>
+
+    <div class="principles" data-reveal>
+      {person.principles.map((p) => (
+        <p class="principle"><span class="mark"></span>{p}</p>
+      ))}
+    </div>
 
     <div class="groups">
       {skills.map((group) => (
@@ -33,6 +39,30 @@ import { skills } from '../data/profile';
   .lead {
     color: var(--muted);
     max-width: 560px;
+  }
+
+  .principles {
+    margin-top: 36px;
+    max-width: 760px;
+  }
+
+  .principle {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .mark {
+    flex: none;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    translate: 0 -5px;
   }
 
   .groups {
