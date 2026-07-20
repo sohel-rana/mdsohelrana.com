@@ -7,73 +7,53 @@ const links = [
   { href: '/#skills', label: 'Skills' },
   { href: '/blog', label: 'Blog' },
   { href: '/#nerddevs', label: 'NerdDevs' },
-  { href: '/#contact', label: 'Contact' },
 ];
 ---
 
-<header class="nav-wrap">
-  <nav class="container nav" aria-label="Primary">
-    <a class="logo" href="/" aria-label="Home">
-      <span class="logo-mark">SR</span>
-      <span class="logo-text">sohel<span class="logo-accent">rana</span></span>
-    </a>
+<nav class="nav" aria-label="Primary">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="/" aria-label="Home">Sohel<span class="accent">Rana</span></a>
 
     <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span>
     </button>
 
     <div class="nav-right">
-      <ul class="nav-links">
+      <ul class="links">
         {links.map((l) => (
           <li><a href={l.href}>{l.label}</a></li>
         ))}
       </ul>
-      <a class="btn btn-primary nav-cta" href={person.cvFile} download>Download CV</a>
+      <a class="cv" href={person.cvFile} download>Download CV</a>
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <style>
-  .nav-wrap {
-    position: fixed;
-    inset: 0 0 auto 0;
-    z-index: 50;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: rgba(7, 11, 20, 0.78);
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
   }
 
-  .nav {
+  .nav-inner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    height: 68px;
-  }
-
-  .logo {
-    display: flex;
     align-items: center;
-    gap: 0.6rem;
+    padding-block: 26px;
+  }
+
+  .wordmark {
     font-family: var(--font-display);
+    font-size: 24px;
     font-weight: 600;
-    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    line-height: 1;
   }
 
-  .logo-mark {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-
-  .logo-accent {
+  .wordmark .accent {
     color: var(--accent);
   }
 
@@ -83,26 +63,37 @@ const links = [
     gap: 1.75rem;
   }
 
-  .nav-links {
+  .links {
     display: flex;
-    gap: 1.6rem;
+    align-items: center;
+    gap: 30px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
     list-style: none;
     padding: 0;
   }
 
-  .nav-links a {
-    font-size: 0.92rem;
-    color: var(--muted);
-    transition: color 0.15s ease;
+  .links a:hover {
+    color: var(--accent);
   }
 
-  .nav-links a:hover {
-    color: var(--accent-bright);
+  .cv {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
   }
 
-  .nav-cta {
-    padding: 0.55rem 1.1rem;
-    font-size: 0.85rem;
+  .cv:hover {
+    background: var(--accent);
+    color: var(--on-accent);
   }
 
   .menu-btn {
@@ -118,7 +109,7 @@ const links = [
   .menu-btn span {
     width: 22px;
     height: 2px;
-    background: var(--text);
+    background: var(--ink);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
@@ -129,7 +120,7 @@ const links = [
 
     .nav-right {
       position: absolute;
-      top: 68px;
+      top: 100%;
       left: 0;
       right: 0;
       flex-direction: column;
@@ -137,7 +128,7 @@ const links = [
       gap: 0;
       background: var(--surface);
       border-bottom: 1px solid var(--line);
-      padding: 0.5rem 1.5rem 1.25rem;
+      padding: 0.5rem var(--gutter) 1.25rem;
       display: none;
     }
 
@@ -145,21 +136,22 @@ const links = [
       display: flex;
     }
 
-    .nav-links {
+    .links {
       flex-direction: column;
+      align-items: stretch;
       gap: 0;
     }
 
-    .nav-links a {
+    .links a {
       display: block;
       padding: 0.8rem 0;
-      font-size: 1rem;
+      font-size: 13px;
       border-bottom: 1px solid var(--line);
     }
 
-    .nav-cta {
+    .cv {
       margin-top: 1rem;
-      justify-content: center;
+      text-align: center;
     }
   }
 </style>
