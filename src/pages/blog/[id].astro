@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Contact from '../../components/Contact.astro';
 import { getCollection, render } from 'astro:content';
-import { site, person } from '../../data/profile';
+import { site, person, company } from '../../data/profile';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -20,17 +20,39 @@ const dateFmt = (d: Date) =>
   d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
 const coverImage = post.data.image ?? site.ogImage;
+const postUrl = `${site.url}/blog/${post.id}`;
 
-const articleLd = {
+const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: post.data.title,
-  description: post.data.description,
-  image: `${site.url}${coverImage}`,
-  datePublished: post.data.pubDate.toISOString(),
-  author: { '@type': 'Person', name: person.name, url: site.url },
-  publisher: { '@type': 'Organization', name: 'NerdDevs Ltd', url: 'https://nerddevs.com' },
-  mainEntityOfPage: `${site.url}/blog/${post.id}`,
+  '@graph': [
+    {
+      '@type': 'BlogPosting',
+      '@id': `${postUrl}/#article`,
+      headline: post.data.title,
+      description: post.data.description,
+      image: `${site.url}${coverImage}`,
+      datePublished: post.data.pubDate.toISOString(),
+      dateModified: post.data.pubDate.toISOString(),
+      inLanguage: 'en',
+      keywords: post.data.tags.join(', '),
+      articleSection: post.data.tags[0] ?? 'Engineering',
+      wordCount: post.body?.split(/\s+/).length ?? undefined,
+      author: { '@id': `${site.url}/#person` },
+      publisher: { '@id': `${company.url}/#organization` },
+      mainEntityOfPage: postUrl,
+      isPartOf: { '@id': `${site.url}/blog/#blog` },
+      url: postUrl,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${postUrl}/#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${site.url}/blog` },
+        { '@type': 'ListItem', position: 3, name: post.data.title, item: postUrl },
+      ],
+    },
+  ],
 };
 ---
 
@@ -41,7 +63,7 @@ const articleLd = {
   ogType="article"
 >
   <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </Fragment>
 
   <Nav />
@@ -63,12 +85,6 @@ const articleLd = {
             <span class="chip">{t}</span>
           ))}
         </div>
-
-        {post.data.image && (
-          <div class="post-cover">
-            <img src={post.data.image} alt={post.data.title} width="1200" height="630" loading="eager" />
-          </div>
-        )}
 
         <div class="prose">
           <Content />
@@ -132,20 +148,6 @@ const articleLd = {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 2.5rem;
-  }
-
-  .post-cover {
-    max-width: 780px;
-    margin-bottom: 2.5rem;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--line);
-  }
-
-  .post-cover img {
-    width: 100%;
-    height: auto;
-    display: block;
   }
 
   .prose {
