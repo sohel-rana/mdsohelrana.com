@@ -54,10 +54,13 @@ const jsonLd = {
   <Nav />
   <main>
     <section class="blog-hero">
-      <div class="container">
-        <p class="eyebrow">Writing</p>
-        <h1 class="section-title">Notes from building AI products and running an engineering team</h1>
-        <p class="section-lead">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="rule"></span>
+          <span class="label">Writing</span>
+        </div>
+        <h1>Notes from building AI products and running an engineering team</h1>
+        <p class="lead">
           Field notes on AI product development, SaaS architecture, EdTech, cloud infrastructure and
           engineering leadership — drawn from what we actually ship at NerdDevs, not theory.
         </p>
@@ -65,26 +68,23 @@ const jsonLd = {
     </section>
 
     <section class="blog-list">
-      <div class="container">
+      <div class="wrap">
         <div class="posts">
           {posts.map((post) => (
-            <a class="post-card" href={`/blog/${post.id}`} data-reveal>
-              <div class="post-meta">
-                <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
+            <a class="post" href={`/blog/${post.id}`} data-reveal>
+              {post.data.image && <img src={post.data.image} alt="" loading="lazy" />}
+              <div>
+                <p class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
+                </p>
+                <h2>{post.data.title}</h2>
+                <p class="post-desc">{post.data.description}</p>
+                <div class="post-tags">
+                  {post.data.tags.map((t) => (
+                    <span class="chip">{t}</span>
+                  ))}
+                </div>
               </div>
-              <h2 class="post-title">{post.data.title}</h2>
-              <p class="post-desc">{post.data.description}</p>
-              <div class="post-tags">
-                {post.data.tags.map((t) => (
-                  <span class="chip">{t}</span>
-                ))}
-              </div>
-              <span class="read-more">
-                Read post
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
             </a>
           ))}
         </div>
@@ -97,71 +97,81 @@ const jsonLd = {
 
 <style>
   .blog-hero {
-    padding: 160px 0 40px;
+    padding: 100px 0 60px;
+  }
+
+  .blog-hero h1 {
+    font-size: clamp(34px, 5.5vw, 58px);
+    line-height: 1.04;
+    max-width: 880px;
+  }
+
+  .lead {
+    margin-top: 22px;
+    max-width: 640px;
+    color: var(--muted);
   }
 
   .blog-list {
-    padding-top: 0;
+    padding-bottom: 100px;
   }
 
-  .posts {
+  .post {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    max-width: 760px;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
   }
 
-  .post-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding: 1.75rem 1.9rem;
+  .post img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--card), var(--surface));
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    filter: grayscale(0.32) contrast(1.02) brightness(0.96);
+    transition: filter 0.25s ease;
   }
 
-  .post-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(249, 115, 22, 0.45);
-    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  .post:hover img {
+    filter: none;
   }
 
-  .post-meta time {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
+  .post h2 {
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.1;
+  }
+
+  .post:hover h2 {
     color: var(--accent);
   }
 
-  .post-title {
-    font-size: 1.35rem;
+  .post-meta {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
   }
 
   .post-desc {
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 15.5px;
+    margin-top: 12px;
+    max-width: 620px;
   }
 
   .post-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.15rem;
+    gap: 8px;
+    margin-top: 14px;
   }
 
-  .read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.35rem;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--accent-bright);
-  }
-
-  .read-more svg {
-    opacity: 0.7;
+  @media (max-width: 768px) {
+    .post {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
