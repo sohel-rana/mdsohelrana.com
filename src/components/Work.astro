@@ -1,56 +1,37 @@
 ---
 import { projects } from '../data/profile';
+
+const featured = projects.filter((p) => p.featured);
+const more = projects.filter((p) => !p.featured);
 ---
 
 <section id="work">
-  <div class="container">
-    <p class="eyebrow">01 — Featured Work</p>
-    <h2 class="section-title">Products used by millions</h2>
-    <p class="section-lead">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">I</span>
+      <span class="rule"></span>
+      <span class="label">Featured Work</span>
+    </div>
+
+    <h2>Products used by millions</h2>
+    <p class="lead">
       Platforms I’ve architected and shipped — client work and NerdDevs’ own products, from AI
       assistants and messaging backends to assessment systems trusted by global certification
       bodies. Some clients stay unnamed; that discretion is part of the engagement.
     </p>
 
-    <div class="grid">
-      {projects.map((p) => (
-        <article class={`card ${p.featured ? 'featured' : ''}`} data-reveal>
+    <div class="cards">
+      {featured.map((p) => (
+        <article class="card" data-reveal>
           <div class="card-top">
-            <span class="index">{p.index}</span>
-            <span class="top-right">
-              {p.nda && <span class="nda">Client under NDA</span>}
-              <span class="period">{p.period}</span>
-            </span>
+            <span class="idx">{p.index}</span>
+            <span class="period">{p.period}{p.nda ? ' · NDA' : ''}</span>
           </div>
 
-          <h3 class="card-title">
-            {p.caseStudy || p.live ? (
-              <a href={p.caseStudy || p.live?.url} target="_blank" rel="noopener">
-                {p.name}
-                <svg class="ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            ) : (
-              p.name
-            )}
-          </h3>
-
-          <p class="card-role">{p.role}</p>
-          <p class="card-desc">{p.description}</p>
-
-          <ul class="highlights">
-            {p.highlights.map((h) => (
-              <li>{h}</li>
-            ))}
-          </ul>
-
-          <p class="impact">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/>
-            </svg>
-            {p.impact}
-          </p>
+          <h3>{p.name}</h3>
+          <p class="role">{p.role}</p>
+          <p class="blurb">{p.description}</p>
+          <p class="metric">{p.impact}</p>
 
           <div class="tags">
             {p.tags.map((t) => (
@@ -61,50 +42,66 @@ import { projects } from '../data/profile';
           {(p.live || p.caseStudy) && (
             <div class="links">
               {p.live && (
-                <a class="link-btn live" href={p.live.url} target="_blank" rel="noopener">
-                  {p.live.label} ↗
-                </a>
+                <a href={p.live.url} target="_blank" rel="noopener">{p.live.label} ↗</a>
               )}
               {p.caseStudy && (
-                <a class="link-btn" href={p.caseStudy} target="_blank" rel="noopener">
-                  Case study →
-                </a>
+                <a href={p.caseStudy} target="_blank" rel="noopener">Case study →</a>
               )}
             </div>
           )}
         </article>
       ))}
     </div>
+
+    <p class="more-label">More work</p>
+    <div class="more">
+      {more.map((p) => (
+        <div class="more-row" data-reveal>
+          <span class="more-name">{p.name}</span>
+          <span class="more-role">{p.role}</span>
+          <span class="more-period">{p.period}</span>
+          <span class="more-metric">{p.impact}</span>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
-  .grid {
+  section {
+    padding: 120px 0;
+  }
+
+  h2 {
+    margin-top: 22px;
+    font-size: clamp(34px, 5.5vw, 58px);
+    line-height: 1.04;
+  }
+
+  .lead {
+    margin-top: 22px;
+    max-width: 640px;
+    color: var(--muted);
+  }
+
+  .cards {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+    margin-top: 40px;
   }
 
   .card {
-    grid-column: span 2;
+    background: var(--surface);
+    border-top: 2px solid var(--accent);
+    padding: 36px 34px;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
-    padding: 1.6rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--card), var(--surface));
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .card.featured {
-    grid-column: span 3;
+    transition: background 0.18s ease;
   }
 
   .card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(249, 115, 22, 0.45);
-    box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+    background: var(--raised);
   }
 
   .card-top {
@@ -113,157 +110,150 @@ import { projects } from '../data/profile';
     align-items: baseline;
   }
 
-  .index {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-  }
-
-  .period {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+  .idx {
+    font-family: var(--font-display);
+    font-size: 26px;
     color: var(--faint);
   }
 
-  .top-right {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  .period {
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
-  .nda {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
+  .card h3 {
+    font-size: clamp(26px, 3vw, 32px);
+    line-height: 1.08;
+    margin-top: 16px;
+  }
+
+  .role {
+    font-size: 12.5px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--accent-bright);
-    border: 1px solid rgba(249, 115, 22, 0.4);
-    border-radius: 999px;
-    padding: 0.15rem 0.55rem;
-    white-space: nowrap;
-  }
-
-  .card-title {
-    font-size: 1.25rem;
-  }
-
-  .card-title a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.15s ease;
-  }
-
-  .card-title a:hover {
-    color: var(--accent-bright);
-  }
-
-  .ext {
-    opacity: 0.5;
-  }
-
-  .card-role {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--muted);
-    letter-spacing: 0.03em;
-  }
-
-  .card-desc {
-    color: var(--muted);
-    font-size: 0.93rem;
-  }
-
-  .highlights {
-    list-style: none;
-    margin: 0.1rem 0 0;
-    padding: 0;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .highlights li {
-    position: relative;
-    padding-left: 1.15rem;
-    color: var(--muted);
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-
-  .highlights li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
     color: var(--accent);
+    margin-top: 8px;
   }
 
-  .impact {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--accent-bright);
-    background: var(--accent-soft);
-    border-radius: 8px;
-    padding: 0.55rem 0.8rem;
-    width: fit-content;
+  .blurb {
+    margin-top: 16px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .metric {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--accent);
+    margin-top: 20px;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-top: 0.35rem;
+    gap: 8px;
+    margin-top: 20px;
   }
 
   .links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 0.85rem;
+    gap: 20px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
-  .link-btn {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.42rem 0.9rem;
-    border-radius: 8px;
-    border: 1px solid var(--line);
+  .links a:hover {
+    color: var(--accent);
+  }
+
+  .more-label {
+    margin-top: 64px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     color: var(--muted);
-    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease,
-      transform 0.15s ease;
   }
 
-  .link-btn:hover {
-    color: var(--accent-bright);
-    border-color: var(--accent);
-    transform: translateY(-1px);
+  .more-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr 0.9fr 1fr;
+    gap: 24px;
+    align-items: baseline;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
   }
 
-  .link-btn.live {
-    color: var(--accent-bright);
-    border-color: rgba(249, 115, 22, 0.45);
+  .more-name {
+    font-family: var(--font-display);
+    font-size: 23px;
+    font-weight: 600;
   }
 
-  .link-btn.live:hover {
-    background: var(--accent-soft);
+  .more-role {
+    font-size: 14px;
+    color: var(--muted);
   }
 
-  @media (max-width: 980px) {
-    .card,
-    .card.featured {
-      grid-column: span 3;
+  .more-period {
+    font-size: 12.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .more-metric {
+    font-size: 14px;
+    color: var(--accent);
+    text-align: right;
+  }
+
+  @media (max-width: 1024px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .more-row {
+      grid-template-columns: 1.1fr 1.2fr 0.9fr;
+    }
+
+    .more-metric {
+      display: none;
     }
   }
 
-  @media (max-width: 640px) {
-    .card,
-    .card.featured {
-      grid-column: span 6;
+  @media (max-width: 560px) {
+    .more-row {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 6px;
+    }
+
+    .more-name {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .more-role {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .more-period {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .more-metric {
+      display: block;
+      grid-column: 2;
+      grid-row: 2;
+      text-align: right;
     }
   }
 </style>
