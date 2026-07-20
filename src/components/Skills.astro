@@ -1,16 +1,20 @@
 ---
-import { skills, person } from '../data/profile';
+import { skills } from '../data/profile';
 ---
 
 <section id="skills">
-  <div class="container">
-    <p class="eyebrow">03 — Skills</p>
-    <h2 class="section-title">The stack I build with</h2>
-    <p class="section-lead">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">III</span>
+      <span class="rule"></span>
+      <span class="label">Skills</span>
+    </div>
+    <h2>The stack I build with</h2>
+    <p class="lead">
       Technologies matched to the problem — never the other way around.
     </p>
 
-    <div class="grid">
+    <div class="groups">
       {skills.map((group) => (
         <div class="group" data-reveal>
           <h3 class="group-name">{group.group}</h3>
@@ -22,79 +26,38 @@ import { skills, person } from '../data/profile';
         </div>
       ))}
     </div>
-
-    <div class="principles" data-reveal>
-      {person.principles.map((p) => (
-        <p class="principle">
-          <span class="tick" aria-hidden="true">✓</span>
-          {p}
-        </p>
-      ))}
-    </div>
   </div>
 </section>
 
 <style>
-  .grid {
+  .lead {
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  .groups {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 40px 48px;
+    margin-top: 44px;
   }
 
   .group {
-    padding: 1.4rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: linear-gradient(180deg, var(--card), var(--surface));
-    transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .group:hover {
-    border-color: rgba(249, 115, 22, 0.35);
-    transform: translateY(-3px);
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
   }
 
   .group-name {
-    font-size: 0.95rem;
-    color: var(--accent-bright);
-    margin-bottom: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
   }
 
   .items {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  .principles {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2.5rem;
-  }
-
-  .principle {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
-
-  .tick {
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  @media (max-width: 900px) {
-    .grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: 560px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
+    gap: 8px;
   }
 </style>
