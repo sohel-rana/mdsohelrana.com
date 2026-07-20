@@ -38,7 +38,9 @@ body {
   font-family: var(--font-body);
   font-size: 16.5px;
   line-height: 1.62;
-  -webkit-font-smoothing: antialiased;
+  /* Deliberately NOT setting -webkit-font-smoothing. It was inherited from the
+     old stylesheet, and on macOS `antialiased` thins every glyph noticeably —
+     the design renders with the browser default. */
   overflow-x: hidden;
 }
 
