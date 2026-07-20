@@ -1,9 +1,5 @@
 ---
 import { person, stats } from '../data/profile';
-
-const nameParts = person.name.split(' ');
-const lastName = nameParts.pop();
-const firstPart = nameParts.join(' ');
 ---
 
 <section class="wrap">
@@ -24,7 +20,7 @@ const firstPart = nameParts.join(' ');
     <div class="intro" data-reveal>
       <div class="eyebrow-line">{person.headline}</div>
 
-      <h1>{firstPart}<br />{lastName}</h1>
+      <h1>{person.nameLines[0]}<br />{person.nameLines[1]}</h1>
 
       <p class="summary">{person.summary}</p>
 

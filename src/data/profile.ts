@@ -15,7 +15,8 @@ export const site = {
 
 export const person = {
   name: 'Md. Sohel Rana',
-  firstName: 'Sohel',
+  // Hero's two-line display lockup (explicit, not derived from `name`).
+  nameLines: ['Md. Sohel', 'Rana'],
   role: 'Founder & CEO @ NerdDevs Ltd',
   headline: 'AI & SaaS Architect · Full-Stack Engineer',
   location: 'Dhaka, Bangladesh',
