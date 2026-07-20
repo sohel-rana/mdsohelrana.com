@@ -1036,8 +1036,14 @@ Expected: all sections visible immediately, no fade-in translate.
 
 - [ ] **Step 6: Commit**
 
+Stage explicit paths — **never `git add -A`** here. An untracked
+`package-lock.json` may be present (it is not gitignored) and must not be
+swept into a redesign commit.
+
 ```bash
-git add -A
+git add src/components/Hero.astro src/components/Work.astro \
+        src/components/Experience.astro src/components/Skills.astro \
+        src/styles/global.css src/pages/blog/index.astro
 git commit -m "Add responsive breakpoints for editorial redesign"
 ```
 
