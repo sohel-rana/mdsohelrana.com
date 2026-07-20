@@ -206,8 +206,16 @@ a separate page, so a numeral there would be arbitrary.
   image. Covers exist at `public/blog-covers/` and are already exposed as
   `post.data.image`, so the data is available — but the `<img>`, its sizing and
   its grid column are new markup, not a re-skin.
-- **`src/pages/blog/[id].astro`** — cover image with the hero's inset shadow and
-  gold baseline. Bodoni `h1`/`h2`/`h3`, Manrope body at a `68ch` measure,
+
+  Index thumbnails are kept even though post-page covers were dropped: on the
+  index a thumbnail differentiates entries in a list, whereas on a post page
+  it only delays the reader from reaching the text. If thumbnails turn out to
+  be unwanted here too, this is the one place to remove them.
+- **`src/pages/blog/[id].astro`** — **no cover image.** Covers were
+  deliberately removed from post pages in `c9b3a1e`; do not reintroduce them.
+  `post.data.image` stays in use for the JSON-LD `image` field and OG tags
+  only. The post opens directly on the title block.
+  Bodoni `h1`/`h2`/`h3`, Manrope body at a `68ch` measure,
   17.5px, lh 1.7. Inline links gold with a hairline underline. `blockquote`
   gets a 2px gold left border. `pre`/`code` on `--surface` with a hairline
   border, `ui-monospace` stack (no webfont — `--font-mono` is gone).
