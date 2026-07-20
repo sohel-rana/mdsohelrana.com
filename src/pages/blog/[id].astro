@@ -22,6 +22,9 @@ const dateFmt = (d: Date) =>
 const coverImage = post.data.image ?? site.ogImage;
 const postUrl = `${site.url}/blog/${post.id}`;
 
+const wordCount = post.body?.split(/\s+/).filter(Boolean).length ?? 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -36,7 +39,7 @@ const jsonLd = {
       inLanguage: 'en',
       keywords: post.data.tags.join(', '),
       articleSection: post.data.tags[0] ?? 'Engineering',
-      wordCount: post.body?.split(/\s+/).length ?? undefined,
+      wordCount: wordCount || undefined,
       author: { '@id': `${site.url}/#person` },
       publisher: { '@id': `${company.url}/#organization` },
       mainEntityOfPage: postUrl,
@@ -69,13 +72,13 @@ const jsonLd = {
   <Nav />
   <main>
     <article class="post">
-      <div class="container">
+      <div class="wrap">
         <a class="back-link" href="/blog">← All posts</a>
 
         <p class="post-meta">
           <time datetime={post.data.pubDate.toISOString()}>{dateFmt(post.data.pubDate)}</time>
           <span class="sep">·</span>
-          <span>{person.name}</span>
+          <span>{readingTime} min read</span>
         </p>
 
         <h1 class="post-title">{post.data.title}</h1>
@@ -91,8 +94,8 @@ const jsonLd = {
         </div>
 
         <div class="post-footer">
-          <a class="btn btn-ghost" href="/blog">← Back to all posts</a>
-          <a class="btn btn-primary" href={`mailto:${person.email}`}>Get in touch</a>
+          <a class="btn-line" href="/blog">← Back to all posts</a>
+          <a class="btn-accent" href={`mailto:${person.email}`}>Get in touch</a>
         </div>
       </div>
     </article>
@@ -103,110 +106,129 @@ const jsonLd = {
 
 <style>
   .post {
-    padding: 160px 0 40px;
+    padding: 140px 0 40px;
   }
 
   .back-link {
     display: inline-block;
-    margin-bottom: 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
+    margin-bottom: 2.5rem;
+    font-size: 14px;
     color: var(--muted);
     transition: color 0.15s ease;
   }
 
   .back-link:hover {
-    color: var(--accent-bright);
-  }
-
-  .post-meta {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--faint);
-    margin-bottom: 1rem;
-  }
-
-  .post-meta time {
     color: var(--accent);
   }
 
+  .post-meta {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
   .post-meta .sep {
-    margin: 0 0.5rem;
+    margin: 0 0.5em;
   }
 
   .post-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 4.4vw, 2.9rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: clamp(34px, 5.5vw, 56px);
+    line-height: 1.04;
     max-width: 780px;
-    margin-bottom: 1.25rem;
+    margin-bottom: 28px;
   }
 
   .post-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
+    gap: 10px;
+    margin-bottom: 3rem;
   }
 
   .prose {
-    max-width: 720px;
-    color: var(--text);
-    font-size: 1.05rem;
-    line-height: 1.8;
+    max-width: 68ch;
+    font-size: 17.5px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.4vw, 34px);
+    color: var(--ink);
+    margin-top: 2.2em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(h3) {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--ink);
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
   }
 
   .prose :global(p) {
-    margin-bottom: 1.4rem;
-    color: var(--text);
+    margin-bottom: 1.25em;
   }
 
   .prose :global(strong) {
-    color: var(--text);
+    color: var(--ink);
     font-weight: 600;
   }
 
   .prose :global(a) {
-    color: var(--accent-bright);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
   }
 
-  .prose :global(h2) {
-    font-size: 1.4rem;
-    margin: 2.4rem 0 1rem;
-  }
-
-  .prose :global(h3) {
-    font-size: 1.15rem;
-    margin: 2rem 0 0.85rem;
-  }
-
-  .prose :global(ul),
-  .prose :global(ol) {
-    margin: 0 0 1.4rem 1.3rem;
-    color: var(--text);
-  }
-
-  .prose :global(li) {
-    margin-bottom: 0.5rem;
+  .prose :global(a:hover) {
+    border-bottom-color: var(--accent);
   }
 
   .prose :global(blockquote) {
     border-left: 2px solid var(--accent);
-    padding-left: 1.1rem;
-    color: var(--muted);
-    margin: 1.6rem 0;
+    padding-left: 22px;
+    margin: 1.6em 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 21px;
+    line-height: 1.45;
   }
 
   .prose :global(code) {
-    font-family: var(--font-mono);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.88em;
     background: var(--surface);
     border: 1px solid var(--line);
-    padding: 0.15em 0.4em;
-    border-radius: 5px;
+    border-radius: 2px;
+    padding: 2px 6px;
+  }
+
+  .prose :global(pre) {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 1.6em 0;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.3em;
+    margin-bottom: 1.25em;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5em;
   }
 
   .post-footer {
@@ -216,6 +238,6 @@ const jsonLd = {
     margin-top: 3rem;
     padding-top: 2rem;
     border-top: 1px solid var(--line);
-    max-width: 720px;
+    max-width: 68ch;
   }
 </style>
