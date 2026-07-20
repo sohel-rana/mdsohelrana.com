@@ -958,15 +958,14 @@ git commit -m "Restyle blog post typography to editorial design"
 
 - [ ] **Step 1: 1024px breakpoint**
 
+**`Work.astro` is already done** — its 1024px and 560px breakpoints were
+implemented in commit `f0878f8`. Do **not** add, duplicate or overwrite them.
+Its mobile row layout is a 2×2 grid (name | role, then period | metric) with
+the metric visible; this was confirmed as the intended design. Leave it alone.
+
 ```css
 /* Skills.astro */
 @media (max-width: 1024px) { .groups { grid-template-columns: repeat(2, 1fr); } }
-/* Work.astro */
-@media (max-width: 1024px) {
-  .cards { grid-template-columns: 1fr; }
-  .more-row { grid-template-columns: 1.1fr 1.2fr 0.9fr; }
-  .more-metric { display: none; }
-}
 /* Hero.astro */
 @media (max-width: 1024px) { .hero { gap: 48px; } }
 ```
@@ -998,16 +997,9 @@ once the band wraps to 2×2.
 
 - [ ] **Step 3: 560px breakpoint**
 
-```css
-/* Work.astro */
-@media (max-width: 560px) {
-  .more-row { grid-template-columns: 1fr 1fr; }
-  .more-name { grid-column: 1 / -1; }
-  .more-role { grid-column: 1 / -1; }
-}
-```
-
-Gutter already floors at 20px via the `clamp()` in `--gutter` — no rule needed.
+Nothing to do at this breakpoint. `Work.astro`'s 560px rules already exist
+(commit `f0878f8`) — do not touch them. The gutter already floors at 20px via
+the `clamp()` in `--gutter`, so no rule is needed there either.
 
 - [ ] **Step 4: Full verification sweep**
 
