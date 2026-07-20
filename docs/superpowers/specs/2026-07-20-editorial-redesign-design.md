@@ -140,8 +140,11 @@ Markup and scoped styles are rewritten.
 - **`Contact.astro`** — `.sec-head` `V`. Oversized Bodoni headline, lead
   paragraph, then the email as a 34px Bodoni link with a gold `border-bottom`,
   beside an uppercase LinkedIn link.
-- **Footer** (in `Base.astro`) — hairline top, `space-between`, 12.5px faint:
-  copyright left, "Dhaka, Bangladesh · UTC+6" right.
+- **`Footer.astro`** — **new component.** The footer currently lives inside
+  `Contact.astro`, which means blog pages render no footer at all. Extract it
+  to its own component and render it from `Base.astro` so every page gets it.
+  Hairline top, `space-between`, 12.5px faint: copyright left, "Dhaka,
+  Bangladesh · UTC+6" right.
 
 ## 5. Content model
 
@@ -184,11 +187,25 @@ their current shapes.
 
 ## 6. Blog
 
-Same tokens and primitives. Section header pattern continues as `VI — WRITING`.
+Same tokens and primitives.
+
+Both blog pages currently consume global classes that this redesign removes or
+replaces — `.container`, `.eyebrow`, `.section-title`, `.section-lead`, `.btn`,
+`.btn-primary`, `.btn-ghost`. Their **markup must be migrated**, not merely
+restyled: `.container` becomes `.wrap`, the eyebrow/title/lead trio becomes
+`.sec-head` plus a heading, and buttons become `.btn-accent` / `.btn-line`.
+
+Section header uses the label `WRITING` with **no roman numeral**. The numerals
+I–V mark position within the homepage's single scrolling sequence; the blog is
+a separate page, so a numeral there would be arbitrary.
 
 - **`src/pages/blog/index.astro`** — hairline-separated rows, each with the
   cover image, Bodoni title, gold date/meta, and muted description. Cover
   images get the hero's grayscale treatment, dropping to full color on hover.
+  Note this is **net-new**: the index currently renders text-only cards with no
+  image. Covers exist at `public/blog-covers/` and are already exposed as
+  `post.data.image`, so the data is available — but the `<img>`, its sizing and
+  its grid column are new markup, not a re-skin.
 - **`src/pages/blog/[id].astro`** — cover image with the hero's inset shadow and
   gold baseline. Bodoni `h1`/`h2`/`h3`, Manrope body at a `68ch` measure,
   17.5px, lh 1.7. Inline links gold with a hairline underline. `blockquote`
@@ -205,8 +222,12 @@ The design specifies nothing below 1440px. Breakpoints:
   `object-position: top center` retained. All grids single-column. Both stat
   bands to 2×2 (cell borders adjust so no orphan `border-left` on column 1).
   Experience rows stack, gap to 12px.
-- **≤560px** — Nav links collapse behind a toggle; wordmark and CV button stay
-  visible. Gutter floors at 20px. "More work" rows stack to two lines
+- **≤820px** — Nav links collapse behind the toggle. `Nav.astro` already
+  implements this toggle at exactly this breakpoint, including the
+  `aria-expanded` wiring and the open/close script; keep that behaviour and
+  restyle only. The design's nav carries six links plus the CV button, so this
+  breakpoint stays where it is rather than moving lower.
+- **≤560px** — Gutter floors at 20px. "More work" rows stack to two lines
   (name + role, then period + metric).
 
 Type is already fluid via `clamp()`, so no per-breakpoint font-size overrides
@@ -225,7 +246,10 @@ are needed.
 - `npm run build` completes clean.
 - All six homepage sections render with correct roman numerals I–V (plus VI on
   blog) and no layout overflow at 1440 / 1024 / 768 / 375px.
-- Blog index and at least two post pages render with the new tokens.
+- Blog index and at least two post pages render with the new tokens, each with
+  a footer (which they do not have today).
+- No markup anywhere still uses `.container`, `.eyebrow`, `.section-title`,
+  `.section-lead`, `.btn-primary` or `.btn-ghost`.
 - No references remain to `--font-mono`, `--radius`, `--card`, `--accent-soft`,
   or `--accent-bright`.
 - `prefers-reduced-motion` still suppresses reveal animation.
