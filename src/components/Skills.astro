@@ -90,4 +90,16 @@ import { person, skills } from '../data/profile';
     flex-wrap: wrap;
     gap: 8px;
   }
+
+  @media (max-width: 1024px) {
+    .groups {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .groups {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

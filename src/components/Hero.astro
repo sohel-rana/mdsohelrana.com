@@ -126,4 +126,20 @@ import { person, stats } from '../data/profile';
   .stat-band {
     margin-top: 72px;
   }
+
+  @media (max-width: 1024px) {
+    .hero {
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 56px;
+    }
+    .photo img {
+      max-height: 420px;
+    }
+  }
 </style>

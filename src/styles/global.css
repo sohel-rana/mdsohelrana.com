@@ -122,6 +122,18 @@ h4 {
   margin-top: 10px;
 }
 
+@media (max-width: 768px) {
+  .stat-band {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-band > div:nth-child(odd) {
+    border-left: 0;
+  }
+  .stat-band > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+}
+
 .chip {
   border: 1px solid var(--line);
   color: var(--muted);
