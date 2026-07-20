@@ -60,6 +60,10 @@ import { person, stats } from '../data/profile';
   }
   .photo img {
     width: 100%;
+    /* The width/height attributes on the <img> become presentational hints.
+       Without height:auto the 1500px height hint wins and aspect-ratio is
+       ignored entirely, stretching the photo to the source file's height. */
+    height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: top center;
