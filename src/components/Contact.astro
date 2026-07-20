@@ -23,16 +23,6 @@ const year = new Date().getFullYear();
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p>© {year} {person.name}. All rights reserved.</p>
-    <p class="built">
-      Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> · Deployed on
-      GitHub Pages · <a href="https://nerddevs.com" target="_blank" rel="noopener">nerddevs.com</a>
-    </p>
-  </div>
-</footer>
-
 <style>
   .contact-inner {
     text-align: center;
@@ -75,28 +65,5 @@ const year = new Date().getFullYear();
   .big {
     padding: 1rem 2rem;
     font-size: 1rem;
-  }
-
-  .footer {
-    border-top: 1px solid var(--line);
-    padding: 1.75rem 0;
-  }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-    font-size: 0.83rem;
-    color: var(--faint);
-  }
-
-  .footer a {
-    color: var(--muted);
-    transition: color 0.15s ease;
-  }
-
-  .footer a:hover {
-    color: var(--accent-bright);
   }
 </style>

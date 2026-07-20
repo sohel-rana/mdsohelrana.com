@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { site, person, education, company } from '../data/profile';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -145,6 +146,7 @@ const keywords = [
   </head>
   <body>
     <slot />
+    <Footer />
 
     <script is:inline>
       // Reveal-on-scroll (respects prefers-reduced-motion via CSS)

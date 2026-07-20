@@ -1,0 +1,27 @@
+---
+import { person } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap inner">
+    <span>© {year} {person.name}. All rights reserved.</span>
+    <span>{person.location} · {person.timezone}</span>
+  </div>
+</footer>
+
+<style>
+  .footer { border-top: 1px solid var(--line); }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 28px;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--faint);
+  }
+  @media (max-width: 560px) {
+    .inner { flex-direction: column; }
+  }
+</style>
