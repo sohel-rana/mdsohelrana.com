@@ -1,5 +1,11 @@
 ---
 import { person, stats } from '../data/profile';
+
+// Split the summary around the first "NerdDevs" so the component can render
+// that token in brighter ink (see `.summary strong`) without putting markup
+// in profile.ts. If the token is absent, the whole string renders plainly.
+const [beforeBrand, ...afterBrandParts] = person.summary.split('NerdDevs');
+const afterBrand = afterBrandParts.join('NerdDevs');
 ---
 
 <section class="wrap">
@@ -22,7 +28,9 @@ import { person, stats } from '../data/profile';
 
       <h1>{person.nameLines[0]}<br />{person.nameLines[1]}</h1>
 
-      <p class="summary">{person.summary}</p>
+      <p class="summary">{afterBrandParts.length ? (
+        <>{beforeBrand}<strong>NerdDevs</strong>{afterBrand}</>
+      ) : person.summary}</p>
 
       <div class="actions">
         <a class="btn-accent" href={`mailto:${person.email}`}>Get in touch</a>

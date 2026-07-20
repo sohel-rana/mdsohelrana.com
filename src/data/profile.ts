@@ -25,8 +25,10 @@ export const person = {
   linkedin: 'https://www.linkedin.com/in/mdsohelrana',
   github: 'https://github.com/sohel-rana',
   cvFile: '/Md-Sohel-Rana-CV.pdf',
+  // The hero highlights the word "NerdDevs" in brighter ink; Hero.astro wraps
+  // that token in <strong>. Keep the spelling here matching that token exactly.
   summary:
-    'I’m a software engineer turned entrepreneur with 19+ years in tech. I lead NerdDevs, where a 20+ strong team builds AI-driven products, scalable SaaS and EdTech platforms for clients across Asia, Europe and North America. I don’t just manage projects — I architect them: cloud infrastructure across AWS, Azure and GCP, LLM pipelines, messaging systems handling millions of texts monthly, and assessment platforms trusted by the world’s biggest certification bodies.',
+    'A software engineer turned entrepreneur, 19+ years in. I lead NerdDevs — a 20+ strong team building AI-driven products, scalable SaaS and EdTech across three continents. I don’t manage projects; I architect them — cloud on AWS, Azure & GCP, LLM pipelines, messaging moving millions of texts a month, and assessment platforms trusted by the world’s biggest certification bodies.',
   principles: [
     'I don’t just write code — I solve business problems.',
     'TDD and proven design patterns keep products reliable and scalable.',
